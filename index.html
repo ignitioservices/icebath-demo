@@ -353,10 +353,8 @@
 
       <!-- Form -->
       <div class="bg-navy-900 border border-white/10 rounded-2xl p-8 reveal" style="transition-delay:.15s">
-        <form id="lead-form" action="https://formspree.io/f/xwpodwjr" method="POST">
+        <form id="lead-form" action="https://icebath.ignitioservices.com/api/lead" method="POST">
           <!-- Hidden fields -->
-          <input type="hidden" name="_subject" value="🧊 Novo Lead IceBath Pro">
-          <input type="hidden" name="_next" value="#obrigado">
           <input type="hidden" name="lang" id="form-lang" value="pt">
 
           <div class="grid grid-cols-2 gap-4 mb-4">
@@ -470,14 +468,16 @@ document.getElementById('lead-form').addEventListener('submit', async function(e
   btn.disabled = true;
   btn.textContent = '...';
 
-  const data = new FormData(this);
+  const raw = {};
+  new FormData(this).forEach((v,k) => raw[k]=v);
   try {
-    const res = await fetch(this.action, {
+    const res = await fetch('https://icebath.ignitioservices.com/api/lead', {
       method:'POST',
-      body: data,
-      headers:{ 'Accept':'application/json' }
+      body: JSON.stringify(raw),
+      headers:{ 'Content-Type':'application/json', 'Accept':'application/json' }
     });
-    if(res.ok){
+    const json = await res.json().catch(()=>({}));
+    if(res.ok && (json.ok || res.status===200)){
       this.classList.add('hidden');
       document.getElementById('obrigado').classList.remove('hidden');
     } else {
