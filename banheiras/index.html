@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banheiras — Performance e Recuperação de Elite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1579572331145-5e53b299c855?q=80&w=2670&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header -->
+    <header class="absolute top-0 left-0 w-full z-10 p-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-wider">BANHEIRAS</h1>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-bg relative min-h-screen flex items-center justify-center text-center">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative z-10 p-6">
+            <h2 class="text-5xl md:text-7xl font-black uppercase">Recuperação Total. Performance Máxima.</h2>
+            <p class="mt-4 text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">A ferramenta de crioterapia que atletas de elite e ginásios de topo usam para acelerar a recuperação e esmagar recordes.</p>
+            <a href="#contacto" class="mt-8 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform transform hover:scale-105">Pedir Demonstração</a>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section id="beneficios" class="py-20 bg-gray-900">
+        <div class="container mx-auto text-center px-6">
+            <h3 class="text-4xl font-bold mb-12">O Fator Decisivo na Sua Recuperação</h3>
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Benefício 1 -->
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
+                    <h4 class="text-2xl font-bold mb-3">Redução da Inflamação</h4>
+                    <p class="text-gray-400">A imersão em água fria contrai os vasos sanguíneos, diminuindo drasticamente a inflamação muscular pós-treino e acelerando a reparação dos tecidos.</p>
+                </div>
+                <!-- Benefício 2 -->
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
+                    <h4 class="text-2xl font-bold mb-3">Aumento de Energia e Foco</h4>
+                    <p class="text-gray-400">O choque térmico liberta norepinefrina, aumentando os seus níveis de energia, clareza mental e resiliência para o próximo desafio.</p>
+                </div>
+                <!-- Benefício 3 -->
+                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
+                    <h4 class="text-2xl font-bold mb-3">Sistema Imunitário Reforçado</h4>
+                    <p class="text-gray-400">A exposição regular ao frio estimula a produção de glóbulos brancos, fortalecendo as defesas naturais do seu corpo contra doenças.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Capture -->
+    <section id="contacto" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6 max-w-xl text-center">
+            <h3 class="text-4xl font-bold mb-4">Fale com um Especialista</h3>
+            <p class="text-gray-400 mb-8">Preencha o formulário e a nossa equipa entrará em contacto para agendar uma demonstração exclusiva para o seu negócio.</p>
+            <form action="https://formspree.io/f/xwpodwjr" method="POST" class="text-left">
+                <div class="mb-4">
+                    <label for="nome" class="block text-gray-300 mb-2">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 focus:outline-none focus:border-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-300 mb-2">Email Profissional</label>
+                    <input type="email" id="email" name="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 focus:outline-none focus:border-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="empresa" class="block text-gray-300 mb-2">Nome do Ginásio / Empresa</label>
+                    <input type="text" id="empresa" name="empresa" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 focus:outline-none focus:border-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="telefone" class="block text-gray-300 mb-2">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-2 px-4 focus:outline-none focus:border-blue-500">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-12 rounded-lg text-lg w-full">Enviar Pedido</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-6">
+        <div class="container mx-auto text-center text-gray-500">
+            <p>&copy; 2026 Banheiras. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
