@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Banheiras de gelo profissionais para ginásios, hotéis e centros de bem-estar. Recuperação de elite para o seu negócio.">
+<title>IceBath Pro — Recuperação de Elite para Ginásios</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ice: { 400:'#60c8f5', 500:'#3ab5ee', 600:'#1a9fd8' },
+          navy: { 900:'#060d1f', 800:'#0a1328', 700:'#0e1c3a', 600:'#162850' }
+        },
+        fontFamily: { sans: ['Inter','system-ui','sans-serif'] }
+      }
+    }
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* lang */
+  [data-pt],[data-en]{ display:none }
+  .pt [data-pt]{ display:revert }
+  .en [data-en]{ display:revert }
+
+  /* glow button */
+  .btn-ice {
+    background: linear-gradient(135deg,#3ab5ee,#1a9fd8);
+    transition: all .2s;
+  }
+  .btn-ice:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(58,181,238,.45);
+  }
+
+  /* card hover */
+  .benefit-card { transition: transform .25s, border-color .25s; }
+  .benefit-card:hover { transform: translateY(-6px); border-color: #3ab5ee; }
+
+  /* hero bg shimmer */
+  .hero-bg {
+    background: radial-gradient(ellipse 140% 80% at 60% 40%, rgba(26,159,216,.12) 0%, transparent 65%),
+                radial-gradient(ellipse 80% 60% at 10% 90%, rgba(58,181,238,.07) 0%, transparent 60%),
+                #060d1f;
+  }
+
+  /* crystal float */
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .crystal { animation: float 5s ease-in-out infinite; }
+  .crystal:nth-child(2){ animation-delay:1.5s }
+  .crystal:nth-child(3){ animation-delay:3s }
+
+  /* fade-in on scroll (lightweight) */
+  .reveal { opacity:0; transform:translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* form focus ring */
+  input:focus, textarea:focus { outline: 2px solid #3ab5ee; outline-offset: 2px; }
+</style>
+</head>
+<body class="bg-navy-900 text-white font-sans antialiased pt">
+
+<!-- ============================================================ HEADER -->
+<header class="fixed top-0 inset-x-0 z-50 bg-navy-900/80 backdrop-blur-md border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#" class="text-xl font-black tracking-tight">
+      <span class="text-ice-400">Ice</span><span class="text-white">Bath</span><span class="text-ice-500 ml-1 text-sm font-semibold uppercase tracking-widest">Pro</span>
+    </a>
+    <!-- Nav -->
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-white/60">
+      <a href="#benefits" class="hover:text-white transition-colors">
+        <span data-pt>Benefícios</span><span data-en>Benefits</span>
+      </a>
+      <a href="#social" class="hover:text-white transition-colors">
+        <span data-pt>Clientes</span><span data-en>Clients</span>
+      </a>
+      <a href="#form" class="hover:text-white transition-colors">
+        <span data-pt>Contacto</span><span data-en>Contact</span>
+      </a>
+    </nav>
+    <!-- Actions -->
+    <div class="flex items-center gap-3">
+      <button onclick="toggleLang()" id="lang-btn"
+        class="text-xs font-bold border border-white/20 rounded-full px-3 py-1.5 text-white/60 hover:border-ice-400 hover:text-ice-400 transition-all">
+        EN
+      </button>
+      <a href="#form" class="btn-ice text-sm font-bold px-5 py-2 rounded-lg text-white shadow-lg hidden md:block">
+        <span data-pt>Pedir Demo</span><span data-en>Request Demo</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================ HERO -->
+<section class="hero-bg min-h-screen flex items-center relative overflow-hidden pt-16">
+  <!-- Crystals -->
+  <div class="absolute inset-0 pointer-events-none select-none overflow-hidden">
+    <div class="crystal absolute top-[18%] left-[8%] w-2 h-2 rounded-full bg-ice-400/50"></div>
+    <div class="crystal absolute top-[35%] right-[12%] w-3 h-3 rounded-full bg-ice-500/40"></div>
+    <div class="crystal absolute bottom-[22%] left-[20%] w-1.5 h-1.5 rounded-full bg-ice-400/60"></div>
+    <div class="crystal absolute top-[60%] right-[25%] w-2.5 h-2.5 rounded-full bg-ice-500/30" style="animation-delay:2s"></div>
+    <!-- large bg circle -->
+    <div class="absolute -right-48 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-ice-500/10 bg-ice-500/5"></div>
+    <div class="absolute -right-32 top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-ice-400/15"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-5 py-24 grid md:grid-cols-2 gap-16 items-center relative z-10">
+    <!-- Copy -->
+    <div>
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-ice-500/10 border border-ice-500/25 rounded-full px-4 py-1.5 text-ice-400 text-xs font-bold uppercase tracking-widest mb-8">
+        <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span data-pt>Recuperação Profissional · B2B</span>
+        <span data-en>Professional Recovery · B2B</span>
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-black leading-[1.05] tracking-tight mb-6">
+        <span data-pt>Recuperação<br>de Elite para<br><span class="text-transparent bg-clip-text" style="background:linear-gradient(135deg,#60c8f5,#1a9fd8)">o Seu Ginásio</span></span>
+        <span data-en>Elite Recovery<br>for <span class="text-transparent bg-clip-text" style="background:linear-gradient(135deg,#60c8f5,#1a9fd8)">Your Gym</span></span>
+      </h1>
+
+      <p class="text-lg text-white/60 leading-relaxed mb-10 max-w-lg">
+        <span data-pt>Banheiras de gelo profissionais que aumentam a retenção dos seus sócios, diferenciam o seu espaço e geram receita adicional. Instalação em 48 h, garantia de 2 anos.</span>
+        <span data-en>Professional ice baths that boost member retention, set your facility apart, and generate extra revenue. 48-hour installation, 2-year warranty.</span>
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="#form" class="btn-ice font-bold px-8 py-4 rounded-xl text-white text-base shadow-xl">
+          <span data-pt>Pedir Proposta Gratuita →</span>
+          <span data-en>Get a Free Quote →</span>
+        </a>
+        <a href="#benefits" class="border border-white/15 hover:border-ice-400 font-semibold px-8 py-4 rounded-xl text-white/70 hover:text-white transition-all text-base">
+          <span data-pt>Saber Mais</span>
+          <span data-en>Learn More</span>
+        </a>
+      </div>
+
+      <!-- Mini stats -->
+      <div class="flex gap-8 mt-12 pt-8 border-t border-white/8">
+        <div>
+          <div class="text-3xl font-black text-ice-400">500+</div>
+          <div class="text-xs text-white/50 mt-0.5 font-medium" data-pt>Ginásios Equipados</div>
+          <div class="text-xs text-white/50 mt-0.5 font-medium" data-en>Gyms Equipped</div>
+        </div>
+        <div>
+          <div class="text-3xl font-black text-ice-400">98%</div>
+          <div class="text-xs text-white/50 mt-0.5 font-medium" data-pt>Satisfação</div>
+          <div class="text-xs text-white/50 mt-0.5 font-medium" data-en>Satisfaction</div>
+        </div>
+        <div>
+          <div class="text-3xl font-black text-ice-400">48h</div>
+          <div class="text-xs text-white/50 mt-0.5 font-medium" data-pt>Instalação</div>
+          <div class="text-xs text-white/50 mt-0.5 font-medium" data-en>Installation</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual -->
+    <div class="flex justify-center items-center">
+      <div class="relative w-72 h-72 md:w-96 md:h-96">
+        <!-- outer ring -->
+        <div class="absolute inset-0 rounded-full border border-ice-500/20 animate-pulse"></div>
+        <!-- middle ring -->
+        <div class="absolute inset-8 rounded-full border border-ice-400/30 bg-ice-500/5 backdrop-blur-sm"></div>
+        <!-- inner -->
+        <div class="absolute inset-16 rounded-full border border-ice-400/50 bg-ice-500/10 flex items-center justify-center shadow-[0_0_60px_rgba(58,181,238,0.25)]">
+          <svg viewBox="0 0 120 120" class="w-32 h-32" fill="none">
+            <!-- bath -->
+            <rect x="15" y="55" width="90" height="50" rx="8" fill="rgba(58,181,238,0.15)" stroke="rgba(96,200,245,0.5)" stroke-width="1.5"/>
+            <!-- water -->
+            <rect x="15" y="55" width="90" height="25" rx="8" fill="rgba(26,159,216,0.25)"/>
+            <!-- wave -->
+            <path d="M15 68 Q35 63 55 68 Q75 73 95 68 Q105 65 105 65" stroke="rgba(96,200,245,0.5)" stroke-width="1.2" fill="none"/>
+            <!-- ice crystals in water -->
+            <polygon points="40,62 43,70 37,70" fill="rgba(147,210,245,0.6)"/>
+            <polygon points="60,66 63,72 57,72" fill="rgba(147,210,245,0.5)"/>
+            <polygon points="78,61 81,69 75,69" fill="rgba(147,210,245,0.4)"/>
+            <!-- person silhouette -->
+            <circle cx="60" cy="42" r="10" fill="rgba(147,210,245,0.2)" stroke="rgba(96,200,245,0.4)" stroke-width="1.2"/>
+            <path d="M50 55 Q60 50 70 55" stroke="rgba(96,200,245,0.4)" stroke-width="1.2" fill="none"/>
+            <!-- temp label -->
+            <text x="60" y="95" text-anchor="middle" fill="rgba(96,200,245,0.8)" font-size="8" font-weight="700" font-family="Inter,sans-serif">0°C — 15°C</text>
+          </svg>
+        </div>
+        <!-- floating badges -->
+        <div class="absolute -top-4 right-4 bg-navy-700 border border-ice-500/30 rounded-xl px-4 py-2 shadow-xl text-xs font-bold text-ice-400 crystal">
+          ❄️ <span data-pt>Crioterapia</span><span data-en>Cryotherapy</span>
+        </div>
+        <div class="absolute -bottom-4 left-4 bg-navy-700 border border-ice-500/30 rounded-xl px-4 py-2 shadow-xl text-xs font-bold text-white/80 crystal" style="animation-delay:2s">
+          ✅ <span data-pt>Instalação 48h</span><span data-en>48h Install</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ BENEFITS -->
+<section id="benefits" class="bg-navy-800 py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-16 reveal">
+      <p class="text-ice-400 text-xs font-bold uppercase tracking-widest mb-3" data-pt>PORQUE ICEBATH PRO</p>
+      <p class="text-ice-400 text-xs font-bold uppercase tracking-widest mb-3" data-en>WHY ICEBATH PRO</p>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4" data-pt>O que transforma o seu negócio</h2>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4" data-en>What transforms your business</h2>
+      <p class="text-white/50 text-lg max-w-xl mx-auto" data-pt>Uma banheira de gelo não é um custo. É um argumento de vendas, uma fonte de receita e um motivo para os sócios não saírem.</p>
+      <p class="text-white/50 text-lg max-w-xl mx-auto" data-en>An ice bath isn't a cost. It's a sales argument, a revenue stream, and a reason members stay.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="benefit-card bg-navy-900 border border-white/8 rounded-2xl p-8 reveal">
+        <div class="w-14 h-14 rounded-2xl bg-ice-500/10 border border-ice-500/20 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-ice-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3" data-pt>Recuperação 3× Mais Rápida</h3>
+        <h3 class="text-xl font-bold mb-3" data-en>3× Faster Recovery</h3>
+        <p class="text-white/50 text-sm leading-relaxed" data-pt>Crioterapia clinicamente comprovada. Os seus sócios treinam mais, recuperam mais rápido e voltam com mais frequência — aumentando a frequência de visitas e a satisfação.</p>
+        <p class="text-white/50 text-sm leading-relaxed" data-en>Clinically proven cryotherapy. Your members train harder, recover faster and return more often — boosting visit frequency and satisfaction.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="benefit-card bg-navy-900 border border-white/8 rounded-2xl p-8 reveal" style="transition-delay:.1s">
+        <div class="w-14 h-14 rounded-2xl bg-ice-500/10 border border-ice-500/20 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-ice-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3" data-pt>Diferenciação Premium</h3>
+        <h3 class="text-xl font-bold mb-3" data-en>Premium Differentiation</h3>
+        <p class="text-white/50 text-sm leading-relaxed" data-pt>Ofereça o que a concorrência não tem. Uma banheira de gelo posiciona o seu ginásio como referência de bem-estar na sua cidade e justifica mensalidades mais elevadas.</p>
+        <p class="text-white/50 text-sm leading-relaxed" data-en>Offer what the competition doesn't. An ice bath positions your gym as the wellness reference in your city and justifies higher membership fees.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="benefit-card bg-navy-900 border border-white/8 rounded-2xl p-8 reveal" style="transition-delay:.2s">
+        <div class="w-14 h-14 rounded-2xl bg-ice-500/10 border border-ice-500/20 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-ice-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3" data-pt>ROI em Meses</h3>
+        <h3 class="text-xl font-bold mb-3" data-en>ROI in Months</h3>
+        <p class="text-white/50 text-sm leading-relaxed" data-pt>Sessões pagas de crioterapia, memberships premium e menor churn. Os ginásios parceiros reportam ROI positivo em menos de 6 meses após instalação.</p>
+        <p class="text-white/50 text-sm leading-relaxed" data-en>Paid cryotherapy sessions, premium memberships and lower churn. Partner gyms report positive ROI within 6 months of installation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SOCIAL PROOF -->
+<section id="social" class="bg-navy-900 py-24 border-y border-white/5">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center mb-16 reveal">
+      <p class="text-ice-400 text-xs font-bold uppercase tracking-widest mb-3" data-pt>CLIENTES QUE CONFIAM EM NÓS</p>
+      <p class="text-ice-400 text-xs font-bold uppercase tracking-widest mb-3" data-en>CLIENTS WHO TRUST US</p>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight" data-pt>O que dizem os nossos parceiros</h2>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight" data-en>What our partners say</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-16">
+      <!-- Quote 1 -->
+      <div class="bg-navy-800 border border-white/8 rounded-2xl p-8 reveal">
+        <div class="text-4xl text-ice-400 font-serif mb-4">"</div>
+        <p class="text-white/70 text-base leading-relaxed italic mb-6" data-pt>Desde a instalação, a nossa taxa de retenção subiu 28% e lançámos um pack premium de recuperação com lista de espera. Melhor investimento que fizemos no ginásio.</p>
+        <p class="text-white/70 text-base leading-relaxed italic mb-6" data-en>Since installation, our retention rate increased 28% and we launched a premium recovery pack with a waitlist. Best investment we've made in the gym.</p>
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-ice-500/20 border border-ice-500/30 flex items-center justify-center text-ice-400 font-bold text-sm">JS</div>
+          <div>
+            <div class="font-bold text-sm">João Silva</div>
+            <div class="text-white/40 text-xs" data-pt>Director, CrossFit Lisboa</div>
+            <div class="text-white/40 text-xs" data-en>Director, CrossFit Lisboa</div>
+          </div>
+          <div class="ml-auto text-ice-400">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Quote 2 -->
+      <div class="bg-navy-800 border border-white/8 rounded-2xl p-8 reveal" style="transition-delay:.1s">
+        <div class="text-4xl text-ice-400 font-serif mb-4">"</div>
+        <p class="text-white/70 text-base leading-relaxed italic mb-6" data-pt>A equipa instalou em menos de 48 horas e a formação foi excelente. Os nossos hóspedes mencionam a banheira de gelo nas reviews como um dos destaques do spa.</p>
+        <p class="text-white/70 text-base leading-relaxed italic mb-6" data-en>The team installed in under 48 hours and the training was excellent. Our guests mention the ice bath in reviews as one of the spa's highlights.</p>
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 rounded-full bg-ice-500/20 border border-ice-500/30 flex items-center justify-center text-ice-400 font-bold text-sm">MS</div>
+          <div>
+            <div class="font-bold text-sm">Maria Santos</div>
+            <div class="text-white/40 text-xs" data-pt>Spa Manager, Hotel Lisbon View</div>
+            <div class="text-white/40 text-xs" data-en>Spa Manager, Hotel Lisbon View</div>
+          </div>
+          <div class="ml-auto text-ice-400">★★★★★</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logo bar -->
+    <div class="text-center reveal">
+      <p class="text-white/25 text-xs font-semibold uppercase tracking-widest mb-8" data-pt>Presentes em mais de 500 espaços em Portugal e Espanha</p>
+      <p class="text-white/25 text-xs font-semibold uppercase tracking-widest mb-8" data-en>Present in 500+ spaces across Portugal and Spain</p>
+      <div class="flex flex-wrap justify-center gap-8 items-center opacity-30">
+        <div class="text-xl font-black tracking-tight text-white">CrossFit Lisboa</div>
+        <div class="w-1 h-1 rounded-full bg-white/30"></div>
+        <div class="text-xl font-black tracking-tight text-white">Holmes Place</div>
+        <div class="w-1 h-1 rounded-full bg-white/30"></div>
+        <div class="text-xl font-black tracking-tight text-white">Solinca</div>
+        <div class="w-1 h-1 rounded-full bg-white/30"></div>
+        <div class="text-xl font-black tracking-tight text-white">VivaFit</div>
+        <div class="w-1 h-1 rounded-full bg-white/30"></div>
+        <div class="text-xl font-black tracking-tight text-white">Health Club Porto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ LEAD FORM -->
+<section id="form" class="bg-navy-800 py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <!-- Left copy -->
+      <div class="reveal">
+        <p class="text-ice-400 text-xs font-bold uppercase tracking-widest mb-4" data-pt>CONTACTO</p>
+        <p class="text-ice-400 text-xs font-bold uppercase tracking-widest mb-4" data-en>CONTACT</p>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6" data-pt>Peça uma<br>proposta gratuita</h2>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-6" data-en>Request a<br>free quote</h2>
+        <p class="text-white/50 text-lg leading-relaxed mb-10" data-pt>Sem compromisso. A nossa equipa contacta-o em menos de 24 horas com uma proposta personalizada para o seu espaço.</p>
+        <p class="text-white/50 text-lg leading-relaxed mb-10" data-en>No commitment. Our team will contact you within 24 hours with a personalised proposal for your space.</p>
+
+        <!-- Bullets -->
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3 text-white/60 text-sm">
+            <svg class="w-5 h-5 text-ice-400 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-pt>Visita técnica gratuita ao seu espaço</span><span data-en>Free technical visit to your space</span>
+          </li>
+          <li class="flex items-start gap-3 text-white/60 text-sm">
+            <svg class="w-5 h-5 text-ice-400 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-pt>Proposta detalhada com ROI estimado</span><span data-en>Detailed proposal with estimated ROI</span>
+          </li>
+          <li class="flex items-start gap-3 text-white/60 text-sm">
+            <svg class="w-5 h-5 text-ice-400 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-pt>Opções de financiamento disponíveis</span><span data-en>Financing options available</span>
+          </li>
+          <li class="flex items-start gap-3 text-white/60 text-sm">
+            <svg class="w-5 h-5 text-ice-400 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-pt>Instalação em 48 h, garantia 2 anos</span><span data-en>48h installation, 2-year warranty</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Form -->
+      <div class="bg-navy-900 border border-white/10 rounded-2xl p-8 reveal" style="transition-delay:.15s">
+        <form id="lead-form" action="https://formspree.io/f/xwpodwjr" method="POST">
+          <!-- Hidden fields -->
+          <input type="hidden" name="_subject" value="🧊 Novo Lead IceBath Pro">
+          <input type="hidden" name="_next" value="#obrigado">
+          <input type="hidden" name="lang" id="form-lang" value="pt">
+
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="col-span-2 md:col-span-1">
+              <label class="block text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">
+                <span data-pt>Nome *</span><span data-en>Name *</span>
+              </label>
+              <input type="text" name="nome" required
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/25 text-sm transition-all"
+                placeholder="João Silva">
+            </div>
+            <div class="col-span-2 md:col-span-1">
+              <label class="block text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">
+                <span data-pt>Ginásio / Empresa *</span><span data-en>Gym / Company *</span>
+              </label>
+              <input type="text" name="ginasio" required
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/25 text-sm transition-all"
+                placeholder="CrossFit Lisboa">
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">Email *</label>
+            <input type="email" name="email" required
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/25 text-sm transition-all"
+              placeholder="joao@crossfitlisboa.pt">
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-xs font-semibold text-white/40 uppercase tracking-wider mb-2">
+              <span data-pt>Telefone</span><span data-en>Phone</span>
+            </label>
+            <input type="tel" name="telefone"
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/25 text-sm transition-all"
+              placeholder="+351 912 345 678">
+          </div>
+
+          <button type="submit" id="submit-btn"
+            class="btn-ice w-full py-4 rounded-xl font-bold text-white text-base shadow-xl">
+            <span data-pt>Pedir Proposta Gratuita →</span>
+            <span data-en>Get Free Quote →</span>
+          </button>
+
+          <p class="text-white/25 text-xs text-center mt-4" data-pt>Sem spam. Respondemos em menos de 24 horas.</p>
+          <p class="text-white/25 text-xs text-center mt-4" data-en>No spam. We reply within 24 hours.</p>
+        </form>
+
+        <!-- Success state (shown after redirect anchor) -->
+        <div id="obrigado" class="hidden text-center py-8">
+          <div class="text-5xl mb-4">❄️</div>
+          <h3 class="text-xl font-bold mb-2" data-pt>Proposta enviada!</h3>
+          <h3 class="text-xl font-bold mb-2" data-en>Quote sent!</h3>
+          <p class="text-white/50 text-sm" data-pt>Contactamos em menos de 24 horas.</p>
+          <p class="text-white/50 text-sm" data-en>We'll be in touch within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<footer class="bg-navy-900 border-t border-white/5 py-10">
+  <div class="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div>
+      <div class="text-lg font-black mb-1">
+        <span class="text-ice-400">Ice</span>Bath<span class="text-ice-500 text-xs ml-1 font-semibold uppercase tracking-widest">Pro</span>
+      </div>
+      <div class="text-white/30 text-xs" data-pt>© 2026 IceBath Pro. Todos os direitos reservados.</div>
+      <div class="text-white/30 text-xs" data-en>© 2026 IceBath Pro. All rights reserved.</div>
+    </div>
+    <div class="flex items-center gap-6 text-xs text-white/30">
+      <a href="mailto:comercial@icebathpro.pt" class="hover:text-white transition-colors">comercial@icebathpro.pt</a>
+      <span>|</span>
+      <a href="#" class="hover:text-white transition-colors" data-pt>Privacidade</a>
+      <a href="#" class="hover:text-white transition-colors" data-en>Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ JS -->
+<script>
+// ── Language toggle ──────────────────────────────────────────
+let lang = 'pt';
+function toggleLang(){
+  lang = lang === 'pt' ? 'en' : 'pt';
+  document.body.className = lang;
+  document.getElementById('lang-btn').textContent = lang === 'pt' ? 'EN' : 'PT';
+  document.getElementById('form-lang').value = lang;
+  document.documentElement.lang = lang;
+  document.title = lang === 'pt'
+    ? 'IceBath Pro — Recuperação de Elite para Ginásios'
+    : 'IceBath Pro — Elite Recovery for Your Gym';
+}
+
+// ── Scroll reveal ────────────────────────────────────────────
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── Hash #obrigado — show success ────────────────────────────
+if(location.hash === '#obrigado'){
+  document.getElementById('lead-form').classList.add('hidden');
+  document.getElementById('obrigado').classList.remove('hidden');
+}
+
+// ── AJAX form (progressive enhancement) ─────────────────────
+document.getElementById('lead-form').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = '...';
+
+  const data = new FormData(this);
+  try {
+    const res = await fetch(this.action, {
+      method:'POST',
+      body: data,
+      headers:{ 'Accept':'application/json' }
+    });
+    if(res.ok){
+      this.classList.add('hidden');
+      document.getElementById('obrigado').classList.remove('hidden');
+    } else {
+      throw new Error();
+    }
+  } catch {
+    btn.disabled = false;
+    btn.innerHTML = lang === 'pt' ? '<span data-pt>Pedir Proposta Gratuita →</span>' : '<span data-en>Get Free Quote →</span>';
+    alert(lang === 'pt'
+      ? 'Erro ao enviar. Por favor tente de novo.'
+      : 'Send error. Please try again.');
+  }
+});
+</script>
+</body>
+</html>
